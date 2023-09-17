@@ -59,7 +59,7 @@ class Usuario(Persona):
     
 
 # Definición de la clase UsuarioFinal 
-
+# Metodo para agregar al carrito cursos
 class UsuarioFinal(Usuario):
     def __init__(self, nombre, apellido, dni, direccion, fecha_nacimiento, localidad, codigo_postal, provincia, telefono_celular, email):
         super().__init__(nombre, apellido, dni, direccion, fecha_nacimiento, localidad, codigo_postal, provincia, telefono_celular, email)
@@ -116,6 +116,25 @@ class Compra:
         self.monto_total = monto_total
         self.cursos_en_carrito = cursos_en_carrito
         self.medio_de_pago = medio_de_pago
+        
+
+class MedioPago:
+    def realizar_pago(self, monto):
+        print(f"Realizando pago de ${monto}...")
+        print("¡Pago exitoso!")
+
+class ConfirmacionCompra:
+    def __init__(self, usuario, cursos, monto_total, medio_de_pago):
+        self.usuario = usuario
+        self.cursos = cursos
+        self.monto_total = monto_total
+        self.medio_de_pago = medio_de_pago
+
+    def confirmar(self):
+        self.medio_de_pago.realizar_pago(self.monto_total)
+        for curso in self.cursos:
+            self.usuario.agregar_al_carrito(curso)
+
 
 
 class CursoInicial(Curso):
@@ -140,7 +159,10 @@ class Categoria:
 
 
 
-
+""" medio_pago = MedioPago()
+compra = ConfirmacionCompra(usuario, cursos, monto_total, medio_pago)
+compra.confirmar()
+ """
 
 
 
