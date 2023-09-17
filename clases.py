@@ -156,17 +156,6 @@ class Categoria:
 
 
 
-
-
-
-""" medio_pago = MedioPago()
-compra = ConfirmacionCompra(usuario, cursos, monto_total, medio_pago)
-compra.confirmar()
- """
-
-
-
-
 # intento de uso
 
 # Creación de usuarios
