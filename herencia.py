@@ -1,3 +1,4 @@
+from enum import Enum
 class Persona:
     def __init__(self, nombre, apellido, dni, fecha_nacimiento, direccion, localidad, codigo_postal, provincia, telefono_celular, email):
         self.nombre = nombre
@@ -90,3 +91,24 @@ class Carrito:
 class MedioDePago:
     def __init__(self, tipo):
         self.tipo = tipo
+
+class MedioDeContacto:
+    def __init__(self,id_MedioContacto,fecha,email,telefono,direccion,nombre):
+        self.id_MedioContacto = id_MedioContacto
+        self.fecha = fecha
+        self.email = email
+        self.telefono = telefono
+        self.direccion = direccion
+        self.nombre = nombre
+
+class TiposDeMediosDeContacto(Enum):
+    whatsapp = MedioDeContacto(1, "","","","","")
+    correoelectronico = MedioDeContacto(2,"","","","","")
+    CallCenter = MedioDeContacto(3, '', '', '', '', '')
+    ReferidoInterno = MedioDeContacto(4, '', '', '', '', '')
+
+
+""" TiposDeMediosDeContacto.whatsapp.value.fecha = '2023-10-18'
+
+print(TiposDeMediosDeContacto.whatsapp.value.fecha)
+print(TiposDeMediosDeContacto.whatsapp.value.id_MedioContacto) """
